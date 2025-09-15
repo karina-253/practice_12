@@ -1,0 +1,46 @@
+hint = input()
+hidden_word = input().lower()
+
+star = ['*'] * len(hidden_word)
+
+print('\n' * 25)
+print(hint)
+print(''.join(star))
+
+att = 10
+
+while att > 0:
+    ans = input('Буква или слово(0 - буква, 1 - слово)?')
+
+    if ans == '0':
+        letter = input().lower()
+        if letter in hidden_word:
+            for ch in range(len(hidden_word)):
+                if hidden_word[ch] == letter:
+                    star[ch] = letter
+            print(''.join(star))
+
+            if '*' not in star:
+                print('Победа!')
+                break
+        else:
+            att -= 1
+            print('Такой буквы нет')
+            print(''.join(star))
+    elif ans == '1':
+        div = input('Введите слово: ').lower()
+        if div == hidden_word:
+            print('Победа!')
+            break
+        else:
+            print('Проигрыш!')
+            print(f'Правильный ответ:{hidden_word}')
+            break
+    else:
+        print('Введите 0 или 1')
+        continue
+
+if att == 0:
+    print('Проигрыш!')
+    print(f'Правильный ответ:{hidden_word}')
+
