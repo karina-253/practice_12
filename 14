@@ -27,6 +27,7 @@ while att > 0:
             att -= 1
             print('Такой буквы нет')
             print(''.join(star))
+
     elif ans == '1':
         div = input('Введите слово: ').lower()
         if div == hidden_word:
